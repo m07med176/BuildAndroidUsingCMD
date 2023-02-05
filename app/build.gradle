@@ -1,0 +1,19 @@
+plugins {
+	id 'application'
+}
+
+mainClassName = 'com.example.android.App'
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+}
+task hello {
+    doLast {
+        println "Hello World"
+    }
+}
+
