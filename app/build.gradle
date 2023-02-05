@@ -10,10 +10,39 @@ repositories {
 }
 
 dependencies {
+
+  implementation fileTree(dir: 'libs', include: '*.jar')
+  testImplementation 'junit:junit:4.13.2'
+ 
+ // implementation files('libs/gson-2.2.2.jar')
+ //testImplementation group: 'junit', name: 'junit', version: '4.13.2'
+ implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+
+ 
 }
-task hello {
+
+configurations{
+	implementation.setCanBeResolved(true)
+	testImplementation.setCanBeResolved(true)
+}
+
+
+task printDependencies {
+	group "custom tasks"
+	description "Show Dependencies"
     doLast {
-        println "Hello World"
+        configurations.implementation.each { println it.name }
     }
 }
 
+task copyLibs(type: Copy) {
+	group "custom tasks"
+	description "migrate dependencies into libs folder"
+    from configurations.implementation
+    into "$project.rootDir/libs/"
+	
+	from configurations.testImplementation
+    into "$project.rootDir/libs/"
+}
+
+build.dependsOn copyLibs
