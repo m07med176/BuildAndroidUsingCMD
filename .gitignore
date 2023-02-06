@@ -1,5 +1,5 @@
 /archive
 /app/build
-/lib
+/libs
 *.jar
 *.aar

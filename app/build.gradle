@@ -1,24 +1,19 @@
 plugins {
-	id 'application'
+    id 'com.android.application'
 }
 
-mainClassName = 'com.example.android.App'
-
-
-repositories {
-    mavenCentral()
+android{
+	compileSdkVersion 30
+	namespace 'com.example.android'
 }
 
 dependencies {
+	implementation fileTree(dir: 'libs', include: '*.jar')
+	testImplementation 'junit:junit:4.13.2'
 
-  implementation fileTree(dir: 'libs', include: '*.jar')
-  testImplementation 'junit:junit:4.13.2'
- 
- // implementation files('libs/gson-2.2.2.jar')
- //testImplementation group: 'junit', name: 'junit', version: '4.13.2'
- implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-
- 
+	// implementation files('libs/gson-2.2.2.jar')
+	//testImplementation group: 'junit', name: 'junit', version: '4.13.2'
+	implementation 'com.squareup.retrofit2:retrofit:2.9.0'
 }
 
 configurations{
