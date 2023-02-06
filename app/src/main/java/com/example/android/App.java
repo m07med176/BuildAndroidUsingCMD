@@ -1,12 +1,14 @@
 package com.example.android;
 
-public class App{
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+
+public class App extends AppCompatActivity{
 	
-	public String greatingMessage(){
-		return "Hello World";
-	}
-	public static void main(String[] args){
-		String message = new App().greatingMessage();
-		System.out.println(message);
-	}
+	@Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+	
+	
 }
